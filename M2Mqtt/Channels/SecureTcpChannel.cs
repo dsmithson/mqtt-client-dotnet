@@ -81,7 +81,7 @@ namespace Tevux.Protocols.Mqtt {
 
                     var clientCertificates = new X509CertificateCollection(new X509Certificate[] { _connectionOptions.Certificate });
 
-                    _sslStream.AuthenticateAsClient(_connectionOptions.Hostname, clientCertificates, false);
+                    _sslStream.AuthenticateAsClient(_connectionOptions.Hostname, clientCertificates, _connectionOptions.MinimumSslProtocol, false);
 
                     isOk = true;
                     IsConnected = true;
